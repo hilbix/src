@@ -30,7 +30,9 @@ make
 sudo make install
 ```
 
-- Do not use `git clean` on this parent repo after switching branches.
+- When switching branches, ignore the message, that some subdirectories cannot be removed, this is the normal intended behavior.  Use `git status` afterwards to see that it is really clean.
+- Do not use `git clean` on this parent repo after switching branches, else you possibly destroy your unsaved edits on other branches!
+- Please do not be puzzled.  If you are missing something, it is possibly on another branch.  For example, `README.md` is only on the `master` branch.
 
 
 Branches
