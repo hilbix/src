@@ -1,8 +1,7 @@
-One repository to bind them all.
+One Repo to bring them all
+==========================
 
-There are so many repositories I want to keep on each of my machines, so it was more easy to create a single one which combines everyting as sub-repositories.
-
-`git submodule update --init` is your friend.
+There are so many repositories I want to keep on each of my machines, so it was more easy to create a single one which combines everyting as sub-repositories.  So I only have to `clone` this one and then can easlily pull the rest using `co`.
 
 
 Usage
@@ -47,3 +46,4 @@ Following independent branches exist in this repo:
 - tino-X: some various experiments
 
 and so on.
+
