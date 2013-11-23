@@ -1,0 +1,72 @@
+[submodule "ddrescue-verify"]
+	path = ddrescue-verify
+	url = https://github.com/hilbix/ddrescue-verify.git
+[submodule "dbm"]
+	path = dbm
+	url = https://github.com/hilbix/dbm.git
+[submodule "tinolib"]
+	path = tinolib
+	url = https://github.com/hilbix/tinolib.git
+[submodule "keypressed"]
+	path = keypressed
+	url = https://github.com/hilbix/keypressed.git
+[submodule "sq"]
+	path = sq
+	url = https://github.com/hilbix/sq.git
+[submodule "socklinger"]
+	path = socklinger
+	url = https://github.com/hilbix/socklinger.git
+[submodule "slowdown"]
+	path = slowdown
+	url = https://github.com/hilbix/slowdown.git
+[submodule "ptybuffer"]
+	path = ptybuffer
+	url = https://github.com/hilbix/ptybuffer.git
+[submodule "printargs"]
+	path = printargs
+	url = https://github.com/hilbix/printargs.git
+[submodule "tinoseq"]
+	path = tinoseq
+	url = https://github.com/hilbix/tinoseq.git
+[submodule "tinohtmlparse"]
+	path = tinohtmlparse
+	url = https://github.com/hilbix/tinohtmlparse.git
+[submodule "printansi"]
+	path = printansi
+	url = https://github.com/hilbix/printansi.git
+[submodule "mvatom"]
+	path = mvatom
+	url = https://github.com/hilbix/mvatom.git
+[submodule "unbuffered"]
+	path = unbuffered
+	url = https://github.com/hilbix/unbuffered.git
+[submodule "md5chk"]
+	path = md5chk
+	url = https://github.com/hilbix/md5chk.git
+[submodule "kdmktone"]
+	path = kdmktone
+	url = https://github.com/hilbix/kdmktone.git
+[submodule "histogram"]
+	path = histogram
+	url = https://github.com/hilbix/histogram.git
+[submodule "diskus"]
+	path = diskus
+	url = https://github.com/hilbix/diskus.git
+[submodule "dirlist"]
+	path = dirlist
+	url = https://github.com/hilbix/dirlist.git
+[submodule "count"]
+	path = count
+	url = https://github.com/hilbix/count.git
+[submodule "cmpfast"]
+	path = cmpfast
+	url = https://github.com/hilbix/cmpfast.git
+[submodule "checkrun"]
+	path = checkrun
+	url = https://github.com/hilbix/checkrun.git
+[submodule "gitstart"]
+	path = gitstart
+	url = https://github.com/hilbix/gitstart.git
+[submodule "misc"]
+	path = misc
+	url = https://github.com/hilbix/misc.git
