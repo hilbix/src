@@ -47,3 +47,8 @@ Following independent branches exist in this repo:
 
 and so on.
 
+
+License
+-------
+
+This is a Repo of Repos, so no license needed.
