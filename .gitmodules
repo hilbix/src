@@ -1,0 +1,9 @@
+[submodule "zeromq-db"]
+	path = zeromq-db
+	url = https://subproject.org/tino/zeromq-db.git
+[submodule "zeromq-puzzle"]
+	path = zeromq-puzzle
+	url = https://subproject.org/tino/zeromq-puzzle.git
+[submodule "zeromq-shell"]
+	path = zeromq-shell
+	url = https://subproject.org/tino/zeromq-shell.git
