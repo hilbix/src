@@ -73,3 +73,6 @@
 [submodule "speedtests"]
 	path = speedtests
 	url = https://github.com/hilbix/speedtests.git
+[submodule "killmem"]
+	path = killmem
+	url = https://github.com/hilbix/killmem.git

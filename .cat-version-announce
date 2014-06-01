@@ -1,0 +1,13 @@
+# Temporary command to create list of ANNOUNCEments with VERSION info for GIT commit
+
+git log --oneline --no-abbrev-commit --follow ANNOUNCE |
+while read -r id ign
+do
+	echo
+	echo ------------------------------------------------------------------------
+	echo
+	echo -n "VERSION "
+	git show "$id":VERSION | cat
+	echo
+	git show "$id":ANNOUNCE | cat
+done
