@@ -76,3 +76,6 @@
 [submodule "killmem"]
 	path = killmem
 	url = https://github.com/hilbix/killmem.git
+[submodule "shellshock"]
+	path = shellshock
+	url = https://github.com/hilbix/shellshock.git
