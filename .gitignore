@@ -23,4 +23,5 @@ tinohtmlparse/
 tinolib/
 tinoseq/
 unbuffered/
+shellshock/
 speedtests/
