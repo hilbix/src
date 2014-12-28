@@ -79,3 +79,6 @@
 [submodule "shellshock"]
 	path = shellshock
 	url = https://github.com/hilbix/shellshock.git
+[submodule "nonblocking"]
+	path = nonblocking
+	url = https://github.com/hilbix/nonblocking.git
