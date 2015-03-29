@@ -1,6 +1,8 @@
+*Note: Switch to branch [`tool`](../../tree/tool) to see what's in here for you!*
+
 # One Repo to bring them all
 
-There are so many repositories I want to keep on each of my machines, so it was more easy to create a single one which combines everyting as sub-repositories.  So I only have to `clone` this one and then can easlily pull the rest using `co`.
+There are so many repositories I want to keep on each of my machines, so it was more easy to create a single one which combines everyting as sub-repositories.  So I only have to `clone` this one and then can easily pull the rest using `co`.
 
 
 ## Usage
