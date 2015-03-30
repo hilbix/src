@@ -82,3 +82,6 @@
 [submodule "nonblocking"]
 	path = nonblocking
 	url = https://github.com/hilbix/nonblocking.git
+[submodule "watcher"]
+	path = watcher
+	url = https://github.com/hilbix/watcher.git
