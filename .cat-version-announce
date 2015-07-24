@@ -1,5 +1,41 @@
 # Temporary command to create list of ANNOUNCEments with VERSION info for GIT commit
 
+OOPS()
+{
+echo "OOPS: $*" >&2
+exit 1
+}
+
+HELLO="Announcements are now in the git commit log:
+git log --follow VERSION"
+
+check()
+{
+cmp -s - "$1" <<<"$2" ||
+git cat-file blob HEAD:"$1" | cmp - "$1" ||
+OOPS "$1 not checked in"
+
+echo "$2" > "$1"
+}
+
+VERSION="$(git cat-file blob HEAD:VERSION)"
+V="${VERSION##*.}"
+vers="${VERSION%$V}"
+let V++
+vers="$vers$V"
+
+check ANNOUNCE "$HELLO"
+check VERSION "$vers"
+
+git add ANNOUNCE VERSION tino
+
+cat <<EOF
+
+VERSION $vers
+
+Updated tino/ and bump VERSION just for git-log purpose
+EOF
+
 git log --oneline --no-abbrev-commit --follow ANNOUNCE |
 while read -r id ign
 do
@@ -11,3 +47,4 @@ do
 	echo
 	git show "$id":ANNOUNCE | cat
 done
+
