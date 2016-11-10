@@ -7,6 +7,13 @@ This are the list of all tools or sources I always want to have on my machines f
 Usage:
 ------
 
+To compile everything:
+```bash
+make
+```
+
+To compile a single thing:
+
 ```bash
 cd DIRECTORY
 git submodule update --init

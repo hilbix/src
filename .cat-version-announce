@@ -31,7 +31,7 @@ git add ANNOUNCE VERSION tino
 
 cat <<EOF
 
-VERSION $vers
+VERSION $vers moved from CVS to git
 
 Updated tino/ and bump VERSION just for git-log purpose
 EOF
