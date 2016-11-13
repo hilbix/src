@@ -26,10 +26,15 @@ SUBS=	\
 	tinoseq        	\
 	unbuffered     	\
 
+DEBS=
+DEBS+=build-essential
+DEBS+=libgdbm-dev libsqlite3-dev
+DEBS+=autoconf libtool
+DEBS+=gawk dietlibc-dev ksh
 
 .PHONY: all clean distclean
 all clean distclean:	sub
-	git submodule foreach '$(MAKE)' $@
+	git submodule foreach '$(MAKE)' $@ || { err=$$?; echo; echo "FAIL $$err"; echo; echo "If something is missing, try 'make debian' to pull needed packages"; exit $$err; }
 
 .PHONY: sub
 sub:
@@ -62,4 +67,8 @@ st:
 
 status:
 	for a in */.git; do ( b="$${a%/.git}"; cd "$$b" && git status --porcelain | awk -vT="$$b" '{ printf "%20s %s\n", T, $$0 }'; ); done
+
+.PHONY: debian
+debian:
+	sudo apt-get install $(DEBS)
 

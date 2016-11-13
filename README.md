@@ -7,12 +7,14 @@ This are the list of all tools or sources I always want to have on my machines f
 Usage:
 ------
 
-To compile everything:
+See `Makefile` target `debian` for requirements.
+
+Pull in required Debian packages (via `sudo`) and compile all the submodules:
 ```bash
-make
+make debian all
 ```
 
-To compile a single thing:
+To compile/install a single thing:
 
 ```bash
 cd DIRECTORY
@@ -21,7 +23,7 @@ make
 sudo make install
 ```
 
-If this does not work, you need some more bootstrapping from CVS:
+If something goes wrong utterly and you need some more bootstrapping:
 
 ```bash
 cd DIRECTORY
