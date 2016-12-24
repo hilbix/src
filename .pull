@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# GitHub connectivity at my side is a bit strange, probably due to CGN (biggest Calamity of Genetic Nature, which means: humans with a very retarded mind)
+
+[ -s .uplist ] || for a in "${@:3}"; do echo "$a"; done >> .uplist
+
+for a in `cat .uplist`
+do
+	echo -n .
+	[ -d "$a" ] &&
+	(
+	cd "$a" &&
+	git checkout -q master &&
+	for b in . . . .
+	do
+		timeout "$1" git $2 && exit
+		echo "retry $a"
+		sleep 1
+	done
+	exit 1
+	) &&
+	sed -i "/^$a\$/d" .uplist
+done
+
+! [ -s .uplist ]
+

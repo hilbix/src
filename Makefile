@@ -41,12 +41,17 @@ sub:
 	git submodule update --init
 	git submodule foreach git submodule update --init
 
-.PHONY: update up uplib
+.PHONY: update up up2 up5 uplib
 update:	up uplib
 
 up:
-	git submodule --quiet foreach 'echo -n .; git checkout -q master && for b in . . . . . . . . . .; do git pull -q && exit 0; echo "retry $$path"; sleep 1; done; false'
-	echo
+	./.pull 120 pull $(SUBS)
+
+up2:
+	./.pull 2 pull $(SUBS)
+
+up5:	.uplist
+	./.pull 5 pull $(SUBS)
 
 .PHONY: push
 push:
