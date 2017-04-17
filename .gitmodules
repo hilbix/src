@@ -85,3 +85,6 @@
 [submodule "watcher"]
 	path = watcher
 	url = https://github.com/hilbix/watcher.git
+[submodule "macshim"]
+	path = macshim
+	url = https://github.com/hilbix/macshim.git
