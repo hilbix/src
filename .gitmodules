@@ -88,3 +88,6 @@
 [submodule "macshim"]
 	path = macshim
 	url = https://github.com/hilbix/macshim.git
+[submodule "suid"]
+	path = suid
+	url = https://github.com/hilbix/suid.git
