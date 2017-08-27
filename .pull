@@ -1,26 +1,37 @@
 #!/bin/bash
 #
 # GitHub connectivity at my side is a bit strange, probably due to CGN (biggest Calamity of Genetic Nature, which means: humans with a very retarded mind)
+#
+# Usage: ./.pull ''|timeout files..
 
-[ -s .uplist ] || for a in "${@:3}"; do echo "$a"; done >> .uplist
+CMD="git pull --ff-only"
+LIST="$0.tmp~"
 
-for a in `cat .uplist`
+[ -s "$LIST" ] && [ -n "$1" ] ||
+	for a in "${@:2}"; do echo "$a"; done >> "$LIST"
+
+[ -n "$1" ] &&
+for a in `cat "$LIST"`
 do
 	echo -n .
 	[ -d "$a" ] &&
 	(
 	cd "$a" &&
+	git merge -q --ff-only master &&
 	git checkout -q master &&
+	[ -z "$(git diff master)" ] &&
 	for b in . . . .
 	do
-		timeout "$1" git $2 && exit
+		echo "=== $a ==="
+		timeout "$1" $CMD && exit
 		echo "retry $a"
 		sleep 1
 	done
 	exit 1
 	) &&
-	sed -i "/^$a\$/d" .uplist
+	sed -i'~' -e "/^${a//\//\\/}\$/d" "$LIST" ||
+	echo "BUG: $a"
 done
 
-! [ -s .uplist ]
+! [ -s "$LIST" ]
 

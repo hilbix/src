@@ -1,31 +1,41 @@
 #
 
-SUBS=	\
-	checkrun       	\
-	cmpfast        	\
-	count          	\
-	dbm            	\
-	ddrescue-verify	\
-	dirlist        	\
-	diskus         	\
-	gitstart       	\
-	histogram      	\
-	kdmktone       	\
-	keypressed     	\
-	md5chk         	\
-	misc           	\
-	mvatom         	\
-	printansi      	\
-	printargs      	\
-	ptybuffer      	\
-	slowdown       	\
-	socklinger     	\
-	sq             	\
-	tinohtmlparse  	\
-	tinolib        	\
-	tinoseq        	\
-	unbuffered     	\
+# to see need to update SUBS: make check
+SUBS=
+SUBS+=checkrun
+SUBS+=cmpfast
+SUBS+=count
+SUBS+=dbm
+SUBS+=ddrescue-verify
+SUBS+=dirlist
+SUBS+=diskus
+SUBS+=gitstart
+SUBS+=histogram
+SUBS+=kdmktone
+SUBS+=keypressed
+SUBS+=killmem
+SUBS+=macshim
+SUBS+=md5chk
+SUBS+=misc
+SUBS+=mvatom
+SUBS+=nonblocking
+SUBS+=printansi
+SUBS+=printargs
+SUBS+=ptybuffer
+SUBS+=shellshock
+SUBS+=slowdown
+SUBS+=socklinger
+SUBS+=speedtests
+SUBS+=sq
+SUBS+=suid
+SUBS+=timeout
+SUBS+=tinohtmlparse
+SUBS+=tinolib
+SUBS+=tinoseq
+SUBS+=unbuffered
+SUBS+=watcher
 
+# Well .. Debians
 DEBS=
 DEBS+=build-essential
 DEBS+=libgdbm-dev libsqlite3-dev
@@ -33,25 +43,30 @@ DEBS+=autoconf libtool
 DEBS+=gawk dietlibc-dev ksh
 
 .PHONY: all clean distclean
-all clean distclean:	sub
+all::	sub
+all clean distclean::
 	git submodule foreach '$(MAKE)' $@ || { err=$$?; echo; echo "FAIL $$err"; echo; echo "If something is missing, try 'make debian' to pull needed packages"; exit $$err; }
+
+distclean::
+	rm -f *~ .*~
 
 .PHONY: sub
 sub:
-	git submodule update --init
-	git submodule foreach git submodule update --init
+	./.pull 100
+	for a in $(SUBS); do [ -d "$$a" -a -e "$$a/.git" ] || ( cd "`dirname "$$a"`" && git submodule update --init --recursive "`basename "$$a"`" ); done
+	for a in */tino; do [ -d "$$a" -a -e "$$a/.git" ] || ( cd "`dirname "$$a"`" && git submodule update --init --recursive "`basename "$$a"`" ); done
 
 .PHONY: update up up2 up5 uplib
 update:	up uplib
 
 up:
-	./.pull 120 pull $(SUBS)
+	./.pull 120 $(SUBS)
 
 up2:
-	./.pull 2 pull $(SUBS)
+	./.pull 2 $(SUBS)
 
-up5:	.uplist
-	./.pull 5 pull $(SUBS)
+up5:
+	./.pull 5 $(SUBS)
 
 .PHONY: push
 push:
@@ -59,12 +74,21 @@ push:
 	git submodule foreach --recursive 'if git symbolic-ref HEAD >/dev/null 2>&1; then git push; else echo "$$name is detached, so no push"; fi'
 
 uplib:
-	ok=true; tinolib="$$(readlink -e tinolib)" && for a in */tino; do [ -d "$$a" -a -e "$$a/.git" ] && echo -n . && ( cd "$$a" && git config --local url."$$tinolib".insteadOf "`git ls-remote --get-url origin`" && git checkout -q master && git pull -q --ff-only; ) || { echo "bug $$a"; ok=false; }; done; $$ok
+	./.pull 100
+	ok=true; tinolib="$$(readlink -e tinolib)" && for a in */tino; do if [ -d "$$a" -a -e "$$a/.git" ] && printf . && ( cd "$$a" && git config --local url."$$tinolib".insteadOf "`git ls-remote --get-url origin`" ); then ./.pull '' "$$a"; else echo "bug $$a"; ok=false; fi; done; $$ok
+	./.pull 100
 
 .PHONY: lib
 lib:
-	for a in */tino; do [ -d "$$a" -a -e "$$a/.git" ] && echo -n . && ( cd "`dirname "$$a"`" && $(MAKE) && git add Makefile Makefile.md5 tino ) || { echo; echo "bug $$a"; echo; exit 1; }; done
+	for a in */tino; do [ -d "$$a" -a -e "$$a/.git" ] && printf . && ( cd "`dirname "$$a"`" && $(MAKE) && git add Makefile Makefile.md5 tino ) || { echo; echo "bug $$a"; echo; exit 1; }; done
 
+.PHONY: checklib
+checklib:
+	SHA="`cd tinolib && git rev-parse HEAD`" && { ok=:; for a in $(SUBS); do [ -d "$$a/tino" -a -e "$$a/tino/.git" ] && [ ".$$SHA" != ".`cd "$$a/tino" && git rev-parse HEAD`" ] && { echo "WRONG $$a"; ok=false; }; done; $$ok && echo OK; }
+
+.PHONY: check
+check:
+	bash -c "diff -u <(grep ^SUBS+= Makefile) <(git submodule | awk '{ print \"SUBS+=\" \$$2 }')"
 
 .PHONY: st status
 st:
