@@ -2,6 +2,7 @@
 
 # to see need to update SUBS: make check
 SUBS=
+SUBS+=batchlines
 SUBS+=checkrun
 SUBS+=cmpfast
 SUBS+=count
@@ -22,6 +23,7 @@ SUBS+=nonblocking
 SUBS+=printansi
 SUBS+=printargs
 SUBS+=ptybuffer
+SUBS+=run-until-change
 SUBS+=shellshock
 SUBS+=slowdown
 SUBS+=socklinger
@@ -77,6 +79,9 @@ uplib:
 	./.pull 100
 	ok=true; tinolib="$$(readlink -e tinolib)" && for a in */tino; do if [ -d "$$a" -a -e "$$a/.git" ] && printf . && ( cd "$$a" && git config --local url."$$tinolib".insteadOf "`git ls-remote --get-url origin`" ); then ./.pull '' "$$a"; else echo "bug $$a"; ok=false; fi; done; $$ok
 	./.pull 100
+
+downlib:
+	for a in $(SUBS); do [ -d "$$a/tino" -e "$$a/tino/.git" ] && ( cd ..................... XXX TODO XXX
 
 .PHONY: lib
 lib:
