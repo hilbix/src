@@ -97,3 +97,6 @@
 [submodule "run-until-change"]
 	path = run-until-change
 	url = https://github.com/hilbix/run-until-change.git
+[submodule "batchlines"]
+	path = batchlines
+	url = https://github.com/hilbix/batchlines.git
