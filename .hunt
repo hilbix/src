@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd "$(dirname -- "$0")" &&
+find . -type f -print0 -o -type d \( -name tino -o -name .git -o -name tinolib \) -prune |
+xargs --null grep "$@"
+
