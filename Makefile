@@ -12,6 +12,7 @@ SUBS+=dirlist
 SUBS+=diskus
 SUBS+=gitstart
 SUBS+=histogram
+SUBS+=json2sh
 SUBS+=kdmktone
 SUBS+=keypressed
 SUBS+=killmem
