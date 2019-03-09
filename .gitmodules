@@ -103,3 +103,6 @@
 [submodule "json2sh"]
 	path = json2sh
 	url = https://github.com/hilbix/json2sh.git
+[submodule "bashy"]
+	path = bashy
+	url = https://github.com/hilbix/bashy.git
