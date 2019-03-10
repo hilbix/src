@@ -2,6 +2,7 @@ container:
   image: gcc:latest
 
 make_task:
+  setup_script: apt-get install sudo
   prep_script: git submodule update --init --recursive
   check_script: a="`git status --porcelain`" && [ -z "$a" ]
   debian_script: make debian
