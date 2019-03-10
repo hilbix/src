@@ -4,6 +4,6 @@ container:
 make_task:
   prep_script: git submodule update --init --recursive
   check_script: a="`git status --porcelain`" && [ -z "$a" ]
-  make_debian: make debian
+  debian_script: make debian
   make_script: make
 
