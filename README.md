@@ -1,3 +1,9 @@
+[![Status](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool):
+ [![checkout](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=prep)
+ [![git check](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=check)
+ [![make debian](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=debian)
+ [![make](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=make)
+
 # tool branch
 
 This are the list of all tools or sources I always want to have on my machines for easy access.
