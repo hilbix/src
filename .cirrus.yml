@@ -3,6 +3,6 @@ container:
 
 make_task:
   prep_script: git submodule update --init --recursive
-  check_script: a="`git status --porcellain`" && [ -z "$a" ]
+  check_script: a="`git status --porcelain`" && [ -z "$a" ]
   make_script: make
 
