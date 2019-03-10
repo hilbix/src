@@ -2,10 +2,9 @@ container:
   image: gcc:latest
 
 make_task:
-  apt_script: apt-get update
-  sudo_script: apt-get install sudo
+  fix_script: echo '[ apt-get = "$1" ] || exec "$@"; shift; exec apt-get -y "$@"' > /bin/sudo; chmod +x /bin/sudo
   prep_script: git submodule update --init --recursive
   check_script: a="`git status --porcelain`" && [ -z "$a" ]
-  debian_script: make debian
+  debian_script: apt-get update; make debian
   make_script: make
 
