@@ -1,8 +1,8 @@
-[![Status](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool):
- [![checkout](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=prep)
- [![git check](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=check)
- [![make debian](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=debian)
- [![make](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=make)
+[![Status](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool)](https://cirrus-ci.com/github/hilbix/src):
+ ![checkout](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=prep)
+ ![git check](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=check)
+ ![make debian](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=debian)
+ ![make](https://api.cirrus-ci.com/github/hilbix/src.svg?branch=tool&task=make&script=make)
 
 # tool branch
 
