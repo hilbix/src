@@ -93,7 +93,7 @@
 	url = https://github.com/hilbix/suid.git
 [submodule "timeout"]
 	path = timeout
-	url = http://github.com/hilbix/timeout.git
+	url = https://github.com/hilbix/timeout.git
 [submodule "run-until-change"]
 	path = run-until-change
 	url = https://github.com/hilbix/run-until-change.git

@@ -2,3 +2,12 @@
 /work.*/
 /*.swp
 /*~
+/*.dsc
+/*.deb
+/*.ddeb
+/*_amd64.build
+/*_amd64.buildinfo
+/*_amd64.changes
+/*.debhelper.log
+/*.substvars
+/*_*.tar.xz
