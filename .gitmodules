@@ -112,3 +112,6 @@
 [submodule "passfd"]
 	path = passfd
 	url = https://github.com/hilbix/passfd.git
+[submodule "Q"]
+	path = Q
+	url = https://github.com/hilbix/Q.git
