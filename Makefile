@@ -2,7 +2,10 @@
 
 # to see need to update SUBS: make check
 SUBS=
+SUBS+=Q
+SUBS+=bashy
 SUBS+=batchlines
+SUBS+=bbb
 SUBS+=checkrun
 SUBS+=cmpfast
 SUBS+=count
@@ -14,6 +17,7 @@ SUBS+=gitstart
 SUBS+=histogram
 SUBS+=json2sh
 SUBS+=kdmktone
+SUBS+=keepcached
 SUBS+=keypressed
 SUBS+=killmem
 SUBS+=macshim
@@ -21,6 +25,7 @@ SUBS+=md5chk
 SUBS+=misc
 SUBS+=mvatom
 SUBS+=nonblocking
+SUBS+=passfd
 SUBS+=printansi
 SUBS+=printargs
 SUBS+=ptybuffer
@@ -44,6 +49,7 @@ DEBS+=build-essential
 DEBS+=libgdbm-dev libsqlite3-dev
 DEBS+=autoconf libtool
 DEBS+=gawk dietlibc-dev ksh
+DEBS+=libssl-dev
 
 .PHONY: all clean distclean
 all::	sub
