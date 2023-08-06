@@ -13,6 +13,7 @@ SUBS+=dbm
 SUBS+=ddrescue-verify
 SUBS+=dirlist
 SUBS+=diskus
+SUBS+=fanotifier
 SUBS+=gitstart
 SUBS+=histogram
 SUBS+=json2sh
