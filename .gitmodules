@@ -118,3 +118,6 @@
 [submodule "keepcached"]
 	path = keepcached
 	url = https://github.com/hilbix/keepcached.git
+[submodule "fanotifier"]
+	path = fanotifier
+	url = https://github.com/hilbix/fanotifier.git
