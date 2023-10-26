@@ -121,3 +121,6 @@
 [submodule "fanotifier"]
 	path = fanotifier
 	url = https://github.com/hilbix/fanotifier.git
+[submodule "blocked"]
+	path = blocked
+	url = https://github.com/hilbix/blocked.git

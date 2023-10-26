@@ -6,6 +6,7 @@ SUBS+=Q
 SUBS+=bashy
 SUBS+=batchlines
 SUBS+=bbb
+SUBS+=blocked
 SUBS+=checkrun
 SUBS+=cmpfast
 SUBS+=count
