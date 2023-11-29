@@ -16,10 +16,15 @@ do
 	echo -n .
 	[ -d "$a" ] &&
 	(
-	cd "$a" &&
-	git merge -q --ff-only master &&
-	git checkout -q master &&
-	[ -z "$(git diff master)" ] &&
+	cd "$a" || exit
+	br="$(git rev-parse --abbrev-ref HEAD)"
+	case "$br" in
+	(master)	;;
+	(*)		br="$(cat .gitbranch || echo master)";;
+	esac
+	git merge -q --ff-only "$br" &&
+	git checkout -q "$br" &&
+	[ -z "$(git diff "$br")" ] &&
 	for b in . . . .
 	do
 		echo "=== $a ==="
